@@ -1,6 +1,8 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text } from 'react-native'
 import React from 'react'
 import COLORS from '../constants/colors'
+import { StyleSheet } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 
 const Button = (props) => {
     const filledBgColor = props.color || COLORS.primary
@@ -8,11 +10,14 @@ const Button = (props) => {
     const bgColor = props.filled ? filledBgColor : outlinedColor
     const textColor = props.filled ? COLORS.white : COLORS.primary
     return (
-        <TouchableOpacity onPress={props.onPress} style={{
-            ...styles.Button,
-            ...{backgroundColor: bgColor},
-            ...props.style
-        }}>
+        <TouchableOpacity 
+            style={{
+                ...styles.Button,
+                ...{backgroundColor: bgColor},
+                ...props.style
+            }}
+            onPress={props.onPress}
+        >
             <Text style={{fontSize: 18, ...{color: textColor}}}>{props.title}</Text>
         </TouchableOpacity>
     )
@@ -29,3 +34,5 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     }
 })
+
+export default Button
