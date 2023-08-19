@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 
-const TypingIndicator = () => {
+const TypingIndicator = ({ isTyping }) => {
   return (
     <View style={styles.container}>
-      <ActivityIndicator size="small" color="#007AFF" />
-      <Text style={styles.text}>Typing...</Text>
+      {isTyping ? (
+        <ActivityIndicator size="small" color="#aaa" />
+      ) : (
+        <Text style={styles.text}>typing...</Text>
+      )}
     </View>
   );
 };
